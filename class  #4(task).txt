@@ -1,0 +1,14 @@
+[
+    [
+            student1{ name :  "ali",   father name: "_____"   marks 87,  attendence 85, course:  "Math" }
+            student2{  name: "Ahmed" , father name: "_____" , marks 57 , attendence 75, course:  "Math" }
+    ], 
+    [
+            student1{ name: "ali",    father name: "_____",  marks 77,  attendence 84, course:  "Eng"  }
+            student2{ name: "Ahmed",  father name: "_____",  marks 87,  attendence 95, course:  "Eng"  }
+    ]
+]
+
+passing: 85
+attendence > 85 
+
