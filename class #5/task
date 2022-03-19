@@ -1,0 +1,14 @@
+function name(){
+
+}
+
+name()      // function call
+
+
+develop a calculator with following functionalities
+sum()
+sub()
+mul()
+div()
+per()
+sqr()
