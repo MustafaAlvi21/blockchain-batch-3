@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+    data123 = []
+    async function name(params) {
+        await getData()
+        console.log("data123");
+        console.log(data123);
+    }
+    name()
+     async function getData() {
+        console.log("---------------");
+        await fetch('https://jsonplaceholder.typicode.com/albums')
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            data123 = (data)
+        })
+        .catch(error => {
+            console.log("err")
+            console.log(error)
+        })    
+    }
+</script>
+</html>
