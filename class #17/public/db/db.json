@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Owais",
+        "pass": 123456
+    },
+    {
+        "name": "Ali",
+        "pass": 123456
+    },
+    {
+        "name": "Ahmed",
+        "pass": 789000
+    },
+    {
+        "name": "Mustafa",
+        "pass": "216"
+    },
+    {
+        "name": "Sana",
+        "pass": "216"
+    }
+]
