@@ -29,9 +29,6 @@ var textData = fs.readFileSync('readme.txt', "utf-8", (err, data) => {
     if (err) throw err;
     return data
 });
-console.log("-----------------------------------------");
-console.log(textData);
-console.log("-----------------------------------------");
 
 data = `.p{ font-size: 25px}`
 fs.writeFileSync(`./public/css/metadata.css`, data);
@@ -64,7 +61,7 @@ app.get("/", function (req, res) {
         background-color: gray;
     }
     `
-    fs.writeFileSync(`./public/css/metadata.css`, data);
+    fs.writeFileSync(`./public/css/metadata1.css`, data);
     
     
     res.send("file updated")
@@ -112,12 +109,19 @@ app.post("/postdata", (req, res) => {
 })
 
 
+app.get("/asd" , (req, res) => {
+    data = fs.readFileSync("./public/db/db.json", "utf-8")
+    res.json( JSON.parse(data) )
+})
 
-
-
-
-
-
+app.get("/asd123" , (req, res) => {
+    data = JSON.parse(fs.readFileSync("./public/db/db.json", "utf-8"))
+    data[0].name = "Owais"
+    data.push({ name: "Khan", id: 845})
+    fs.writeFileSync(`./public/db/db.json`, JSON.stringify(data));
+    data = JSON.parse(fs.readFileSync("./public/db/db.json", "utf-8"))
+    res.json( data )
+})
 
 
 
