@@ -2,6 +2,10 @@ const express =  require("express");
 const app = express()
 const bodyParser = require("body-parser")
 const PORT = 3000
+const logger = require("morgan");
+
+
+const { test } = require("./middleware/testing")
 
 // File System
 const fs = require("fs")
@@ -11,11 +15,13 @@ const db = "./public/db/db.json"
 
 // middlewares
 app.use(bodyParser.json())
+app.use(logger("dev"))
 
+app.get("/", (req, res) => {
+    res.send("Welcome to Home!!!")
+})
 
-
-
-app.get("/read-db", (req, res) => {
+app.get("/read-db", test, (req, res) => {
     data = JSON.parse(fs.readFileSync(db, "utf-8"))    
     res.json(data)
 })
