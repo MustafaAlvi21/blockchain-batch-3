@@ -5,10 +5,9 @@ const PORT = 3000
 const logger = require("morgan");
 
 
-const { test } = require("./middleware/testing")
 
 // File System
-const fs = require("fs")
+const fs = require("fs");
 
 // DB Path
 const db = "./public/db/db.json"
@@ -17,15 +16,15 @@ const db = "./public/db/db.json"
 app.use(bodyParser.json())
 app.use(logger("dev"))
 
-app.get("/", (req, res) => {
-    res.send("Welcome to Home!!!")
-})
 
-app.get("/read-db", test, (req, res) => {
-    data = JSON.parse(fs.readFileSync(db, "utf-8"))    
-    res.json(data)
-})
+const firstRouteFile = require("./routes/index")
+app.use("/home", firstRouteFile)
 
+const apiRouteFile = require("./routes/api")
+app.use("/api", apiRouteFile)
+
+
+// Routes
 app.get("/find-db/:name", (req, res) => {
     let data = JSON.parse(fs.readFileSync(db, "utf-8"))    
     const name = req.params.name;
